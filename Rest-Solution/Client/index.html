@@ -1,0 +1,231 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--    <head>-->
+<!--        <meta charset="utf-8">-->
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+<!--        &lt;!&ndash; jQuery &ndash;&gt;-->
+<!--        <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>-->
+
+<!--        &lt;!&ndash; Popper.js &ndash;&gt;-->
+<!--        <script src="js/popper.min.js" type="text/javascript"></script>-->
+
+<!--        &lt;!&ndash; Bootstrap 4 Beta. &ndash;&gt;-->
+<!--        <link href="css/bootstrap.min.css" rel="stylesheet">-->
+<!--        <script src="js/bootstrap.min.js" type="text/javascript"></script>-->
+
+<!--        &lt;!&ndash; Google Web Fonts - Open Sans i Raleway. &ndash;&gt;-->
+<!--        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">-->
+
+<!--        &lt;!&ndash; Font Awesome. &ndash;&gt;-->
+<!--        <link rel="stylesheet" href="css/font-awesome.min.css">-->
+
+<!--        &lt;!&ndash; Style do Edytowania. &ndash;&gt;-->
+<!--        <link rel="stylesheet" href="css/style.css">-->
+<!--        <script src="js/script.js"></script>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <header>-->
+<!--            <nav class="navbar navbar-dark bg-primary">-->
+<!--                <a class="navbar-brand" href="#">Mała Biblioteka</a>-->
+<!--                <span class="navbar-text text-white">Autor: [Imię i Nazwisko]</span>-->
+<!--            </nav>-->
+<!--        </header>-->
+<!--        <main>-->
+<!--            <div class="container-fluid">-->
+<!--                <div class="row">-->
+<!--                    <div class="col">-->
+<!--                        <div class="alert alert-success" role="alert">-->
+<!--                            [Miejsce na Wyświetlanie Komunikatów]-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col">-->
+<!--                        <h1>Książki</h1>-->
+<!--                        <div id="books-form" class="button-group">-->
+<!--                        </div>-->
+<!--                        <form action="/">-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="book-title-input">Tytuł</label>-->
+<!--                                <input id="book-title-input" class="form-control" type="text">-->
+<!--                            </div>-->
+<!--                            <div class="form-group">-->
+<!--                                <label for="book-author-input">Autor</label>-->
+<!--                                <input id="book-author-input" class="form-control" type="text">-->
+<!--                            </div>-->
+<!--                            <button id="new-book-button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Dodaj</button>-->
+<!--                            <button id="confirm-book-button" class="d-none btn btn-primary btn-sm"><i class="fa fa-edit"></i> Zatwierdz edycję</button>-->
+<!--                            <button id="cancel-book-button" class="d-none btn btn-warning btn-sm"><i class="fa fa-close"></i> Dodaj</button>-->
+<!--                        </form>-->
+<!--                        <table class="table table-hover table-sm">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>Tytuł</th>-->
+<!--                                    <th>Autor</th>-->
+<!--                                    <th>Opcje</th>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody id="books-table-body">-->
+<!--&lt;!&ndash;                            <tr data-id="${book.ID}">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <td>${book.Title}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <td>${book.Author}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <td>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="button-group">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <button class="btn btn-primary btn-sm">Edytuj</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <button class="btn btn-danger btn-sm">Usuń</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <button class="btn btn-info btn-sm">Wypożycz</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </td>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </tr>&ndash;&gt;-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+<!--                    </div>-->
+<!--                    <div class="col">-->
+<!--                        <h1>Czytelnicy</h1>-->
+<!--                    </div>-->
+<!--                    <div class="col">-->
+<!--                        <h1>Wypożyczone</h1>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </main>-->
+<!--    </body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery -->
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+    <!-- Popper.js -->
+    <script src="js/popper.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap 4 Beta. -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- Google Web Fonts - Open Sans i Raleway. -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,600,700&amp;subset=latin-ext"
+          rel="stylesheet">
+
+    <!-- Font Awesome. -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Style do Edytowania. -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Mała Biblioteka</a>
+        <span class="navbar-text text-white">Autor: [Imię i Nazwisko]</span>
+    </nav>
+</header>
+<main>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div id="message-box" class="alert alert-success" role="alert">
+                    [Miejsce na Wyświetlanie Komunikatów]
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h1>Książki</h1>
+                <div class="button-group">
+                </div>
+                <form id="book-form" action="/">
+                    <div class="form-group">
+                        <label for="book-title-input">Tytuł</label>
+                        <input id="book-title-input" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="book-author-input">Autor</label>
+                        <input id="book-author-input" class="form-control" type="text">
+                    </div>
+                    <button id="new-book-button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Dodaj
+                    </button>
+                    <button id="confirm-edit-button" class="d-none btn btn-primary btn-sm"><i class="fa fa-edit"></i>
+                        Zatwierdź edycję
+                    </button>
+                    <button id="cancel-edit-button" class="d-none btn btn-warning btn-sm"><i class="fa fa-close"></i>
+                        Anuluj edycję
+                    </button>
+                </form>
+                <table class="table table-hover table-sm">
+                    <thead>
+                    <tr>
+                        <th>Tytuł</th>
+                        <th>Autor</th>
+                        <th>Opcje</th>
+                    </tr>
+                    </thead>
+                    <tbody id="books-table-body">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <h1>Czytelnicy</h1>
+                <div class="button-group">
+                </div>
+                <form id="reader-form" action="/">
+                    <div class="form-group">
+                        <label for="reader-name-input">Czytelnik</label>
+                        <input id="reader-name-input" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="reader-age-input">Wiek</label>
+                        <input id="reader-age-input" class="form-control" type="text">
+                    </div>
+                    <button id="new-reader-button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Dodaj
+                    </button>
+                    <button id="confirm-edit-reader-button" class="d-none btn btn-primary btn-sm"><i class="fa fa-edit"></i>
+                        Zatwierdź edycję
+                    </button>
+                    <button id="cancel-edit-reader-button" class="d-none btn btn-warning btn-sm"><i class="fa fa-close"></i>
+                        Anuluj edycję
+                    </button>
+                </form>
+                <table class="table table-hover table-sm">
+                    <thead>
+                    <tr>
+                        <th>Czytelnik</th>
+                        <th>Wiek</th>
+                        <th>Opcje</th>
+                    </tr>
+                    </thead>
+                    <tbody id="readers-table-body">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <h1>Wypożyczone</h1>
+                <table class="table table-hover table-sm">
+                    <thead>
+                    <tr>
+                        <th>Tytuł</th>
+                        <th>Czytelnik</th>
+                        <th>Data wypożyczenia</th>
+                        <th>Opcje</th>
+                    </tr>
+                    </thead>
+                    <tbody id="lends-table-body">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
